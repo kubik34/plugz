@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html style="background-color: #cd22e1;" >
+<head>
+	    <meta charset="utf-8" />
+
+           <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<title>Math Quiz</title>
+<link href="../fonts/index.css" rel="stylesheet" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js"></script>
+<script src="../js/boot.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/game.js"></script>
+<script src="../js/ads.js"></script>
+<script src="../js/scoreboard.js"></script>
+<script>
+   function blockMove() {
+      event.preventDefault() ;
+}
+</script>
+</head>
+<body ontouchmove="blockMove()" style="
+    margin-left: 0px !important;
+"> 
+<div id='gameplace'></div>
+<script>
+var game=new Phaser.Game(640,960,Phaser.CANVAS,"");
+game.state.add('boot', boot);
+game.state.add('preload', preload);
+game.state.add('main', main);
+game.state.add('game0', game0);
+game.state.add('game1', game1);
+game.state.add('scoreboard1', scoreboard1);
+game.state.add('scoreboard2', scoreboard2);
+
+game.state.start('boot');
+
+game.global={
+	score:0,
+	box:[0,0,0],	//[1]:level
+}
+</script>
+
+</body>
+</html>
